@@ -1,0 +1,185 @@
+/* style.css */
+:root {
+  /* Color Variables */
+  --header-text: #1E293B;
+  --input-border: #E2E8F0;
+  --placeholder: #94A3B8;
+  --filter-btn: #F59E0B;
+  --delete-btn: #EF4444;
+  --add-btn: #3B82F6;
+  --table-header: #F1F5F9;
+  --table-border: #E2E8F0;
+  --table-text: #334155;
+  --pending-bg: #FEF9C3;
+  --pending-text: #854D0E;
+  --completed-bg: #DCFCE7;
+  --completed-text: #166534;
+  --empty-state: #94A3B8;
+  --hover-filter: #D97706;
+  --hover-delete: #DC2626;
+  --hover-add: #2563EB;
+}
+
+/* Base Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #F8FAFC;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  color: var(--header-text);
+}
+
+/* Header */
+header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+header h1 {
+  color: var(--header-text);
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Input Form */
+.flex.gap-2 {
+  gap: 8px;
+}
+
+#todo-input, #date-input {
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+#todo-input::placeholder {
+  color: var(--placeholder);
+}
+
+#todo-input:focus, #date-input:focus {
+  outline: none;
+  border-color: var(--add-btn);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Buttons */
+button {
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+}
+
+/* Filter Button */
+#filter-button {
+  background-color: var(--filter-btn);
+  color: white;
+  padding: 8px 16px;
+}
+
+#filter-button:hover {
+  background-color: var(--hover-filter);
+}
+
+/* Delete Button */
+button[onclick="clearTodos()"] {
+  background-color: var(--delete-btn);
+  color: white;
+  padding: 8px 16px;
+}
+
+button[onclick="clearTodos()"]:hover {
+  background-color: var(--hover-delete);
+}
+
+/* Add Button */
+button[type="button"][onclick="validateForm()"] {
+  background-color: var(--add-btn);
+  color: white;
+  padding: 8px 16px;
+}
+
+button[type="button"][onclick="validateForm()"]:hover {
+  background-color: var(--hover-add);
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+th {
+  background-color: var(--table-header);
+  text-align: left;
+  padding: 12px;
+  font-weight: 600;
+  color: var(--header-text);
+  border-bottom: 1px solid var(--table-border);
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid var(--table-border);
+  color: var(--table-text);
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.status-pending {
+  background-color: var(--pending-bg);
+  color: var(--pending-text);
+}
+
+.status-completed {
+  background-color: var(--completed-bg);
+  color: var(--completed-text);
+}
+
+/* Action Buttons */
+.action-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+  margin-right: 4px;
+  border-radius: 4px;
+  color: white;
+}
+
+/* No Tasks Message */
+#no-tasks {
+  color: var(--empty-state);
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+}
+
+/* Modal Styles */
+#filter-modal {
+  z-index: 1000;
+}
+
+#filter-modal > div {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer */
+footer {
+  margin-top: 24px;
+  color: var(--placeholder);
+  font-size: 12px;
+  text-align: center;
+}

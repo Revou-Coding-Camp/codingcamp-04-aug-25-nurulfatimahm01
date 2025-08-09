@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <!-- CSS External Link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Main Header -->
+    <header class="text-center py-8">
+        <h1 class="text-3xl font-bold">Todo List</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <form>
+            <div class="flex gap-2 mb-6">
+                <input type="text" id="todo-input" placeholder="Add a todo..." class="border p-2 flex-grow rounded">
+                <input type="date" id="date-input" class="border p-2 rounded">
+                <button type="button" onclick="validateForm()" class="rounded bg-blue-500 text-white p-2 w-10 h-10 flex items-center justify-center">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </form>
+
+        <!-- Action Section -->
+        <section class="flex justify-between mb-4">
+            <button id="filter-button" class="rounded bg-yellow-500 text-white p-2 px-4">FILTER</button>
+            <button onclick="clearTodos()" class="rounded bg-red-500 text-white p-2 px-4">DELETE ALL</button>
+        </section>
+
+        <!-- Todo List Section -->
+        <section id="todo-list">
+            <div class="overflow-x-auto">
+                <table class="min-w-full border">
+                    <thead>
+                        <tr class="bg-gray-200">
+                            <th class="border p-2 text-left">TASK</th>
+                            <th class="border p-2 text-left">DUE DATE</th>
+                            <th class="border p-2 text-left">STATUS</th>
+                            <th class="border p-2 text-left">ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="todo-items">
+                        <!-- Todo items will be inserted here -->
+                    </tbody>
+                </table>
+                <div id="no-tasks" class="text-center py-4 text-gray-500">No task found</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Filter Modal (hidden by default) -->
+    <div id="filter-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg w-96">
+            <h2 class="text-xl font-bold mb-4">Filter Todos</h2>
+            
+            <!-- Status Filter Dropdown -->
+            <div class="mb-4">
+                <label class="block mb-2">Status</label>
+                <select id="status-filter" class="border p-2 w-full rounded">
+                    <option value="all">All Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+            
+             <!-- Date Filter Dropdown -->
+            <div class="mb-4">
+                <label class="block mb-2">Due Date</label>
+                <select id="date-filter" class="border p-2 w-full rounded">
+                    <option value="all">All Dates</option>
+                    <option value="today">Today</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="past">Past Due</option>
+                </select>
+            </div>
+            
+            <!-- Modal Action Buttons -->
+            <div class="flex justify-end gap-2">
+                <button onclick="closeFilterModal()" class="bg-gray-500 text-white p-2 px-4 rounded">Cancel</button>
+                <button onclick="applyFilters()" class="bg-blue-500 text-white p-2 px-4 rounded">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Content -->
+    <footer class="text-center text-gray-500 mt-8 py-4">
+        <p>© 2025 Todo List Application</p>
+    </footer>
+
+    <!-- JavaScript External Link -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
